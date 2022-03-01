@@ -40,6 +40,7 @@
         "semi": ["error", "always"],
         "padded-blocks": ["off"],
         "space-before-function-paren": ["error", "never"],
+        "no-useless-constructor": ["off"],
         "no-multiple-empty-lines": ["error", { "max": 5, "maxEOF": 1, "maxBOF": 1 }],
         "indent": ["error", 4, {
             "SwitchCase": 1,
