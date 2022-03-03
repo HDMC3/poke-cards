@@ -1,0 +1,16 @@
+<h1 class="title">Selecciona tu Pokemon favorito:</h1>
+
+<form class="mt-4 mb-4 sm-mt-5 sm-mb-5 d-flex flex-column" [formGroup]="searchForm" (ngSubmit)="searchPokemon()">
+    <div class="input-group">
+        <input #searchInput formControlName="pokemon-name" type="text" class="form-control" placeholder="Bulbasaur...">
+    </div>
+    <div class="input-group justify-content-center mt-3">
+        <button class="btn btn-primary" type="submit" [disabled]="loading">Buscar</button>
+        <button class="btn btn-danger" type="button" [disabled]="pokemonImg === ''" (click)="clearPokemon()">Limpiar</button>
+        <button class="btn btn-success" type="button" [disabled]="pokemonImg === ''">Seleccionar</button>
+    </div>
+
+</form>
+
+<app-poke-searched-card [isLoading]="loading" [pokemonImg]="pokemonImg" [animateNotFound]="pokemonNotFound">
+</app-poke-searched-card>

@@ -1,0 +1,11 @@
+<div #a [ngClass]="{'loading-card': isLoading, 'pokemon-not-found': animateNotFound}" class="card-pokemon-serchead mb-3 mt-5">
+    <div class="pokemon-img-container">
+        <img class="pokemon-img" [src]="pokemonImg">
+    </div>
+    <div [ngClass]="{'open-part-top': pokemonImg !== '' && !isLoading && !animateNotFound}" class="card-part card-part-top">
+        <div class="poke-ball-top"></div>
+    </div>
+    <div [ngClass]="{'open-part-bottom': pokemonImg !== '' && !isLoading && !animateNotFound}" class="card-part card-part-bottom">
+        <div class="poke-ball-bottom"></div>
+    </div>
+</div>
