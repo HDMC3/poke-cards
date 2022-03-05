@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { PokemonStat } from '../interfaces/pokemon-stat.interface';
 import { PokemonType } from '../interfaces/pokemon-type.interface';
@@ -10,14 +10,49 @@ import { Pokemon } from '../interfaces/pokemon.interface';
     providedIn: 'root'
 })
 export class PokemonService {
+    private selectedPokemon: BehaviorSubject<Pokemon | undefined>;
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) {
+        this.selectedPokemon = new BehaviorSubject<Pokemon | undefined>(undefined);
+    }
 
     getPokemon(name: string): Observable<Pokemon> {
         return this.http.get(`${environment.API_URL}/pokemon/${name}`)
             .pipe<Pokemon>(
                 map(this.mapPokemonResponseCallback)
             );
+    }
+
+    get selectedPokemon$() {
+        return this.selectedPokemon.asObservable()
+            .pipe(
+                map(value => {
+                    if (value) {
+                        return value;
+                    }
+
+                    return this.getSelectedPokemonFromStorage();
+                })
+            );
+    }
+
+    changeSelectedPokemon(pokemon: Pokemon) {
+        this.selectedPokemon.next(pokemon);
+        this.setPokemonInStorage(pokemon);
+    }
+
+    setPokemonInStorage(pokemon: Pokemon) {
+        const pokemonStr = JSON.stringify(pokemon);
+        localStorage.setItem('selected-pokemon', pokemonStr);
+    }
+
+    getSelectedPokemonFromStorage() {
+        const pokemonStr = localStorage.getItem('selected-pokemon');
+        if (!pokemonStr) {
+            return undefined;
+        }
+        const pokemon = JSON.parse(pokemonStr);
+        return pokemon;
     }
 
     private decimetersToMeters(decimeters: number) {

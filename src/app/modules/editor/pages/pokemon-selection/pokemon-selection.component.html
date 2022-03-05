@@ -7,7 +7,7 @@
     <div class="input-group justify-content-center mt-3">
         <button class="btn btn-primary" type="submit" [disabled]="loading">Buscar</button>
         <button class="btn btn-danger" type="button" [disabled]="pokemonImg === ''" (click)="clearPokemon()">Limpiar</button>
-        <button class="btn btn-success" type="button" [disabled]="pokemonImg === ''">Seleccionar</button>
+        <button class="btn btn-success" type="button" [disabled]="pokemonImg === ''" (click)="selectPokemon()">Seleccionar</button>
     </div>
 
 </form>
