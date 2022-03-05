@@ -36,6 +36,7 @@
             "style": "kebab-case"
           }
         ],
+        "no-undef": ["off"],
         "quotes": ["error", "single"],
         "semi": ["error", "always"],
         "padded-blocks": ["off"],
