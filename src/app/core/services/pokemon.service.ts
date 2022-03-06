@@ -82,14 +82,16 @@ export class PokemonService {
                     front_default: response.sprites.other['official-artwork'].front_default
                 }
             },
-            stats: response.stats.map((stat: any) => {
-                const newStat: PokemonStat = {
-                    base_stat: stat.base_stat,
-                    name: stat.stat.name
-                };
+            stats: response.stats
+                .filter((s: any) => s.stat.name !== 'special-attack' && s.stat.name !== 'special-defense')
+                .map((stat: any) => {
+                    const newStat: PokemonStat = {
+                        base_stat: stat.base_stat,
+                        name: stat.stat.name
+                    };
 
-                return newStat;
-            }),
+                    return newStat;
+                }),
             types: response.types.map((type: any) => {
                 const newType: PokemonType = {
                     slot: type.slot,
