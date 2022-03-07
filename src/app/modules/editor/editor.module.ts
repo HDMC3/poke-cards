@@ -6,13 +6,15 @@ import { PokemonSelectionComponent } from './pages/pokemon-selection/pokemon-sel
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PokeSearchedCardComponent } from './components/poke-searched-card/poke-searched-card.component';
 import { CustomizeCardComponent } from './pages/customize-card/customize-card.component';
+import { PokemonCardCentralImageComponent } from './components/pokemon-card-central-image/pokemon-card-central-image.component';
 
 
 @NgModule({
     declarations: [
         PokemonSelectionComponent,
         PokeSearchedCardComponent,
-        CustomizeCardComponent
+        CustomizeCardComponent,
+        PokemonCardCentralImageComponent
     ],
     imports: [
         CommonModule,
