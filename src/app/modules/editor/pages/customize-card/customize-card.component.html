@@ -1,3 +1,14 @@
 <div class="card-container">
     <app-pokemon-card-central-image [pokemon]="pokemon"></app-pokemon-card-central-image>
 </div>
+
+<div class="panel-container" [ngClass]="{'open-panel': optionsPanelIsOpen === true, 'close-panel': optionsPanelIsOpen === false}">
+    <div class="backdrop" (click)="optionsPanelIsOpen = false"></div>
+    <app-edition-options-panel (closeOptionsPanel)="closeOptionsPanel()"></app-edition-options-panel>
+</div>
+
+<div *ngIf="!optionsPanelIsOpen" class="options-button-container">
+    <button class="options-button btn btn-primary" (click)="openOptionsPanel()">
+        <img src="assets/options-icon.svg" alt="">
+    </button>
+</div>

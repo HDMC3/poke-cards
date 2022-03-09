@@ -1,6 +1,5 @@
-:host(.host-container) {
+:host(.customize-card-container) {
     display: flex;
-    height: calc(100vh - 5em);
 }
 
 .card-container {
@@ -10,4 +9,77 @@
     justify-content: space-evenly;
     flex-direction: column;
     flex-grow: 1;
+}
+
+.backdrop {
+    flex-grow: 1;
+}
+
+.panel-container {
+    height: 100%;
+    right: 0;
+    box-shadow: 0px 0 10px 0 rgb(64, 64, 64, 0.15);
+    z-index: 1;
+    transition: transform 0.25s, box-shadow 0.25s;;
+}
+
+.options-button-container {
+    margin-top: 1em;
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    right: 0;
+    
+    .options-button {
+        padding: 0.1em;
+
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+.open-panel {
+    transform: unset;
+}
+
+.close-panel {
+    transform: translateX(100%);
+    box-shadow: none;
+}
+
+@media screen and (max-height: 550px) {
+    :host(.host-container) {
+        height: unset;
+    }
+
+    .panel-container {
+        height: 100vh;
+    }
+
+    .card-container {
+        height: 100vh;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .panel-container {
+        top: 0;
+        position: fixed;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .options-button {
+        display: none;
+    }
+
+    .panel-container {
+        transform: translateX(0);
+        box-shadow: 0px 0 10px 0 rgb(64, 64, 64, 0.15);
+    }
 }

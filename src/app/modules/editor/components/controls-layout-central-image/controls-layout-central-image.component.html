@@ -1,0 +1,124 @@
+<div class="accordion">
+
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="header-item">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#header-item-collapse" aria-expanded="true"
+                aria-controls="header-item-collapse">
+                Encabezado
+            </button>
+        </h2>
+        <div id="header-item-collapse" class="accordion-collapse collapse show"
+            aria-labelledby="header-item">
+            <div class="accordion-body">
+                <div class="header">
+                    <div class="color-picker-control">
+                        <label>Background:</label>
+                        <input [(ngModel)]="customValues.header.background" (ngModelChange)="onChangeControlValue()" class="btn btn-secondary" type="color">
+                    </div>
+
+                    <div class="color-picker-control">
+                        <label>Color de fuente:</label>
+                        <input [(ngModel)]="customValues.header.fontColor" (ngModelChange)="onChangeControlValue()" class="btn btn-secondary" type="color">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="image-container-item">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#image-container-item-collapse" aria-expanded="false"
+                aria-controls="image-container-item-collapse">
+                Contenedor imagen
+            </button>
+        </h2>
+        <div id="image-container-item-collapse" class="accordion-collapse collapse"
+            aria-labelledby="image-container-item">
+            <div class="accordion-body">
+                <div class="card-image">
+                    <div class="color-picker-control">
+                        <label>Background:</label>
+                        <input [(ngModel)]="customValues.imageContainer.background" (ngModelChange)="onChangeControlValue()" class="btn btn-secondary" type="color">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="top-part-item">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#top-part-item-collapse" aria-expanded="false"
+                aria-controls="top-part-item-collapse">
+                Parte superior
+            </button>
+        </h2>
+        <div id="top-part-item-collapse" class="accordion-collapse collapse"
+            aria-labelledby="top-part-item">
+            <div class="accordion-body">
+                <div class="card-top">
+                    <div class="color-picker-control">
+                        <label>Background:</label>
+                        <input [(ngModel)]="customValues.cardTopPart.background" (ngModelChange)="onChangeControlValue()" class="btn btn-secondary" type="color">
+                    </div>
+                    <div class="color-picker-control">
+                        <label>Color de indicadores:</label>
+                        <input [(ngModel)]="customValues.cardTopPart.colorBadges" (ngModelChange)="onChangeControlValue()" class="btn btn-secondary" type="color">
+                    </div>
+                    <div class="color-picker-control">
+                        <label>Color de fuente de indicadores:</label>
+                        <input [(ngModel)]="customValues.cardTopPart.badgesColorFont" (ngModelChange)="onChangeControlValue()" class="btn btn-secondary" type="color">
+                    </div>
+                    <div class="color-picker-control">
+                        <label>Color de fuente etiquetas:</label>
+                        <input [(ngModel)]="customValues.cardTopPart.labelsColorFont" (ngModelChange)="onChangeControlValue()" class="btn btn-secondary" type="color">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="bottom-part-item">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#bottom-part-item-collapse" aria-expanded="false"
+                aria-controls="bottom-part-item-collapse">
+                Parte inferior
+            </button>
+        </h2>
+        <div id="bottom-part-item-collapse" class="accordion-collapse collapse"
+            aria-labelledby="bottom-part-item">
+            <div class="accordion-body">
+                <div class="card-bottom">
+                    <div class="color-picker-control">
+                        <label>Background:</label>
+                        <input [(ngModel)]="customValues.cardBottomPart.background" (ngModelChange)="onChangeControlValue()" class="btn btn-secondary" type="color">
+                    </div>
+
+                    <div class="color-picker-control">
+                        <label>Color de fuente de stat:</label>
+                        <input [(ngModel)]="customValues.cardBottomPart.statColorFont" (ngModelChange)="onChangeControlValue()" class="btn btn-secondary" type="color">
+                    </div>
+
+                    <div class="color-picker-control">
+                        <label>Color barra de stat:</label>
+                        <input [(ngModel)]="customValues.cardBottomPart.progressBarColor" (ngModelChange)="onChangeControlValue()" class="btn btn-secondary" type="color">
+                    </div>
+
+                    <div class="color-picker-control">
+                        <label>Background barra de stat:</label>
+                        <input [(ngModel)]="customValues.cardBottomPart.progressBarBackground" (ngModelChange)="onChangeControlValue()" class="btn btn-secondary" type="color">
+                    </div>
+
+                    <div class="color-picker-control">
+                        <label>Color de fuente barra de stat:</label>
+                        <input [(ngModel)]="customValues.cardBottomPart.progressBarColorFont" (ngModelChange)="onChangeControlValue()" class="btn btn-secondary" type="color">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -7,6 +7,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PokeSearchedCardComponent } from './components/poke-searched-card/poke-searched-card.component';
 import { CustomizeCardComponent } from './pages/customize-card/customize-card.component';
 import { PokemonCardCentralImageComponent } from './components/pokemon-card-central-image/pokemon-card-central-image.component';
+import { EditionOptionsPanelComponent } from './components/edition-options-panel/edition-options-panel.component';
+import { ControlsLayoutCentralImageComponent } from './components/controls-layout-central-image/controls-layout-central-image.component';
 
 
 @NgModule({
@@ -14,7 +16,9 @@ import { PokemonCardCentralImageComponent } from './components/pokemon-card-cent
         PokemonSelectionComponent,
         PokeSearchedCardComponent,
         CustomizeCardComponent,
-        PokemonCardCentralImageComponent
+        PokemonCardCentralImageComponent,
+        EditionOptionsPanelComponent,
+        ControlsLayoutCentralImageComponent
     ],
     imports: [
         CommonModule,
