@@ -32,11 +32,16 @@ export class CustomStylesCentralImageCardService {
     };
 
     constructor() {
-        this.customValues$ = new BehaviorSubject(this.defaultValuesCentralImage);
+        const initialValuesCentralImage = JSON.parse(JSON.stringify(this.defaultValuesCentralImage));
+        this.customValues$ = new BehaviorSubject(initialValuesCentralImage);
     }
 
     get customValues() {
         return this.customValues$.asObservable();
+    }
+
+    get defaultValues() {
+        return this.defaultValuesCentralImage;
     }
 
     changeValue(changedValues: CustomValuesCentralImageCard) {

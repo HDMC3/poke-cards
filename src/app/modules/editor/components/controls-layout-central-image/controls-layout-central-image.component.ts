@@ -11,6 +11,7 @@ import { CustomValuesCentralImageCard } from 'src/app/core/types/custom-values-c
 export class ControlsLayoutCentralImageComponent implements OnInit, OnDestroy {
 
     customValues!: CustomValuesCentralImageCard;
+    customInitialValues!: CustomValuesCentralImageCard;
     subscriptionCustomStyles!: Subscription;
 
     constructor(private customStylesService: CustomStylesCentralImageCardService) {
@@ -19,6 +20,9 @@ export class ControlsLayoutCentralImageComponent implements OnInit, OnDestroy {
     ngOnInit() {
         this.subscriptionCustomStyles = this.customStylesService.customValues.subscribe(value => {
             this.customValues = value;
+            if (!this.customInitialValues) {
+                this.customInitialValues = JSON.parse(JSON.stringify(value));
+            }
         });
     }
 
@@ -27,6 +31,26 @@ export class ControlsLayoutCentralImageComponent implements OnInit, OnDestroy {
     }
 
     onChangeControlValue() {
+        this.customStylesService.changeValue(this.customValues);
+    }
+
+    resetValues(group: 'card-bottom' | 'card-top' | 'card-image' | 'card-header') {
+        if (group === 'card-header') {
+            this.customValues.header = { ...this.customStylesService.defaultValues.header };
+        }
+
+        if (group === 'card-top') {
+            this.customValues.cardTopPart = { ...this.customStylesService.defaultValues.cardTopPart };
+        }
+
+        if (group === 'card-bottom') {
+            this.customValues.cardBottomPart = { ...this.customStylesService.defaultValues.cardBottomPart };
+        }
+
+        if (group === 'card-image') {
+            this.customValues.imageContainer = { ...this.customStylesService.defaultValues.imageContainer };
+        }
+
         this.customStylesService.changeValue(this.customValues);
     }
 

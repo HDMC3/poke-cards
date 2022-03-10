@@ -1,17 +1,17 @@
 <div class="accordion">
 
     <div class="accordion-item">
-        <h2 class="accordion-header" id="header-item">
+        <div class="accordion-header d-flex" id="header-item">
             <button class="accordion-button" type="button" data-bs-toggle="collapse"
                 data-bs-target="#header-item-collapse" aria-expanded="true"
                 aria-controls="header-item-collapse">
                 Encabezado
             </button>
-        </h2>
+        </div>
         <div id="header-item-collapse" class="accordion-collapse collapse show"
             aria-labelledby="header-item">
             <div class="accordion-body">
-                <div class="header">
+                <div class="controls-group header">
                     <div class="color-picker-control">
                         <label>Background:</label>
                         <input [(ngModel)]="customValues.header.background" (ngModelChange)="onChangeControlValue()" class="btn btn-secondary" type="color">
@@ -20,6 +20,12 @@
                     <div class="color-picker-control">
                         <label>Color de fuente:</label>
                         <input [(ngModel)]="customValues.header.fontColor" (ngModelChange)="onChangeControlValue()" class="btn btn-secondary" type="color">
+                    </div>
+
+                    <div class="custom-controls-options">
+                        <span class="badge d-flex align-items-center gap-1" (click)="resetValues('card-header')">
+                            <i class="bi bi-arrow-repeat"></i>Reiniciar estilos
+                        </span>
                     </div>
                 </div>
             </div>
@@ -37,10 +43,16 @@
         <div id="image-container-item-collapse" class="accordion-collapse collapse"
             aria-labelledby="image-container-item">
             <div class="accordion-body">
-                <div class="card-image">
+                <div class="controls-group card-image">
                     <div class="color-picker-control">
                         <label>Background:</label>
                         <input [(ngModel)]="customValues.imageContainer.background" (ngModelChange)="onChangeControlValue()" class="btn btn-secondary" type="color">
+                    </div>
+
+                    <div class="custom-controls-options">
+                        <span class="badge d-flex align-items-center gap-1" (click)="resetValues('card-image')">
+                            <i class="bi bi-arrow-repeat"></i>Reiniciar estilos
+                        </span>
                     </div>
                 </div>
             </div>
@@ -58,7 +70,7 @@
         <div id="top-part-item-collapse" class="accordion-collapse collapse"
             aria-labelledby="top-part-item">
             <div class="accordion-body">
-                <div class="card-top">
+                <div class="controls-group card-top">
                     <div class="color-picker-control">
                         <label>Background:</label>
                         <input [(ngModel)]="customValues.cardTopPart.background" (ngModelChange)="onChangeControlValue()" class="btn btn-secondary" type="color">
@@ -74,6 +86,12 @@
                     <div class="color-picker-control">
                         <label>Color de fuente etiquetas:</label>
                         <input [(ngModel)]="customValues.cardTopPart.labelsColorFont" (ngModelChange)="onChangeControlValue()" class="btn btn-secondary" type="color">
+                    </div>
+
+                    <div class="custom-controls-options">
+                        <span class="badge d-flex align-items-center gap-1" (click)="resetValues('card-top')">
+                            <i class="bi bi-arrow-repeat"></i>Reiniciar estilos
+                        </span>
                     </div>
                 </div>
             </div>
@@ -91,7 +109,7 @@
         <div id="bottom-part-item-collapse" class="accordion-collapse collapse"
             aria-labelledby="bottom-part-item">
             <div class="accordion-body">
-                <div class="card-bottom">
+                <div class="controls-group card-bottom">
                     <div class="color-picker-control">
                         <label>Background:</label>
                         <input [(ngModel)]="customValues.cardBottomPart.background" (ngModelChange)="onChangeControlValue()" class="btn btn-secondary" type="color">
@@ -115,6 +133,12 @@
                     <div class="color-picker-control">
                         <label>Color de fuente barra de stat:</label>
                         <input [(ngModel)]="customValues.cardBottomPart.progressBarColorFont" (ngModelChange)="onChangeControlValue()" class="btn btn-secondary" type="color">
+                    </div>
+
+                    <div class="custom-controls-options">
+                        <span class="badge d-flex align-items-center gap-1" (click)="resetValues('card-bottom')">
+                            <i class="bi bi-arrow-repeat"></i>Reiniciar estilos
+                        </span>
                     </div>
                 </div>
             </div>

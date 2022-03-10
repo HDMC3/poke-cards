@@ -6,39 +6,39 @@
     .accordion-header > button {
         font-weight: bold;
     }
+
 }
 
-.header, .card-top, .card-bottom, .card-image {
-    h6 {
-        font-weight: bold;
+.custom-controls-options {
+    display: flex;
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+    span {
+        cursor: pointer;
+        background-color: #eee;
+        color: #555;
+        transition: background-color 0.25s;
+    }
+
+    span:hover {
+        background-color: #ddd;
+    }
+
+    span:active {
+        background-color: #eee;
+    }
+
+    i {
+        font-size: 1.5em;
     }
 }
 
-.header {
+.controls-group {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1em;
     
-    .color-picker-control {
-        align-items: center;
-    }
-}
-
-.card-top {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1em;
-
-    .color-picker-control {
-        align-items: center;
-    }
-}
-
-.card-bottom {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1em;
-
     .color-picker-control {
         align-items: center;
     }
