@@ -51,7 +51,7 @@ export class PokemonService {
         if (!pokemonStr) {
             return undefined;
         }
-        const pokemon = JSON.parse(pokemonStr);
+        const pokemon: Pokemon = JSON.parse(pokemonStr);
         return pokemon;
     }
 

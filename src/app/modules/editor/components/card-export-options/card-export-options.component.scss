@@ -1,0 +1,49 @@
+.export-options-container {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    padding: 0.5em 1em;
+
+    h6 {
+        margin: 0;
+    }
+
+    .options {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5em;
+
+        .badge {
+            cursor: pointer;
+            transition: background-color 0.25s;
+        }
+
+        .png-icon {
+            background-color: #eee;
+            color: #555;
+        }
+    
+        .png-icon:hover {
+            background-color: #ddd;
+        }
+    
+        .png-icon:active {
+            background-color: #eee;
+        }
+
+        .svg-icon {
+            background-color: #158CBA;
+            color: #FFF;
+        }
+    
+        .svg-icon:hover {
+            background-color: #137399;
+        }
+    
+        .svg-icon:active {
+            background-color: #158CBA;
+        }
+    }
+    
+}

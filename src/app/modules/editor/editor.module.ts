@@ -9,6 +9,7 @@ import { CustomizeCardComponent } from './pages/customize-card/customize-card.co
 import { PokemonCardCentralImageComponent } from './components/pokemon-card-central-image/pokemon-card-central-image.component';
 import { EditionOptionsPanelComponent } from './components/edition-options-panel/edition-options-panel.component';
 import { ControlsLayoutCentralImageComponent } from './components/controls-layout-central-image/controls-layout-central-image.component';
+import { CardExportOptionsComponent } from './components/card-export-options/card-export-options.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ControlsLayoutCentralImageComponent } from './components/controls-layou
         CustomizeCardComponent,
         PokemonCardCentralImageComponent,
         EditionOptionsPanelComponent,
-        ControlsLayoutCentralImageComponent
+        ControlsLayoutCentralImageComponent,
+        CardExportOptionsComponent
     ],
     imports: [
         CommonModule,
