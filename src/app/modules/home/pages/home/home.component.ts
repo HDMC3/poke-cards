@@ -1,14 +1,16 @@
 import { Component, HostBinding } from '@angular/core';
-
+import { fadeInToBottom } from 'src/app/core/animations/fade-in-to-bottom.animation';
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
-    styleUrls: ['./home.component.scss']
+    styleUrls: ['./home.component.scss'],
+    animations: [fadeInToBottom]
 })
 export class HomeComponent {
 
     @HostBinding('id') homeContainer = 'home-container';
     @HostBinding('style.height') heightHomeContainer = this.getHeightContainer();
+    @HostBinding('@fadeInToBottom') pageInAnimation = '';
 
     constructor() { }
 

@@ -2,18 +2,21 @@ import { Component, ElementRef, HostBinding, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { delay } from 'rxjs';
+import { fadeInToBottom } from 'src/app/core/animations/fade-in-to-bottom.animation';
 import { Pokemon } from 'src/app/core/interfaces/pokemon.interface';
 import { PokemonService } from 'src/app/core/services/pokemon.service';
 
 @Component({
     selector: 'app-pokemon-selection',
     templateUrl: './pokemon-selection.component.html',
-    styleUrls: ['./pokemon-selection.component.scss']
+    styleUrls: ['./pokemon-selection.component.scss'],
+    animations: [fadeInToBottom]
 })
 export class PokemonSelectionComponent {
 
     @HostBinding('class') content = 'pokemon-selection-container';
     @ViewChild('searchInput') searchInput: ElementRef | undefined;
+    @HostBinding('@fadeInToBottom') pageInAnimation = '';
 
     searchForm: FormGroup;
     pokemonImg: string;
