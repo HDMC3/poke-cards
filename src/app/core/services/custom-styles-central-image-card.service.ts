@@ -47,4 +47,8 @@ export class CustomStylesCentralImageCardService {
     changeValue(changedValues: CustomValuesCentralImageCard) {
         this.customValues$.next(changedValues);
     }
+
+    resetAllValues() {
+        this.customValues$.next(JSON.parse(JSON.stringify(this.defaultValuesCentralImage)));
+    }
 }
