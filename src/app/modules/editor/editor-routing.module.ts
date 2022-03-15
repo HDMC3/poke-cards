@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EditorGuard } from 'src/app/core/guards/editor.guard';
 import { CustomizeCardComponent } from './pages/customize-card/customize-card.component';
 import { PokemonSelectionComponent } from './pages/pokemon-selection/pokemon-selection.component';
 
@@ -10,7 +11,9 @@ const routes: Routes = [
     },
     {
         path: 'customize-card',
-        component: CustomizeCardComponent
+        component: CustomizeCardComponent,
+        canActivate: [EditorGuard],
+        canDeactivate: [EditorGuard]
     }
 ];
 

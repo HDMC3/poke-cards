@@ -1,5 +1,6 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { fadeInToBottom } from 'src/app/core/animations/fade-in-to-bottom.animation';
+import { EditorExit } from 'src/app/core/interfaces/editor-exit.interface';
 import { Pokemon } from 'src/app/core/interfaces/pokemon.interface';
 import { PokemonService } from 'src/app/core/services/pokemon.service';
 
@@ -9,7 +10,7 @@ import { PokemonService } from 'src/app/core/services/pokemon.service';
     styleUrls: ['./customize-card.component.scss'],
     animations: [fadeInToBottom]
 })
-export class CustomizeCardComponent implements OnInit {
+export class CustomizeCardComponent implements OnInit, EditorExit {
 
     @HostBinding('class') customizeCardComponent = 'customize-card-container';
     @HostBinding('style.height') heightCustomizeCardContainer = this.getHeightContainer();
@@ -34,6 +35,11 @@ export class CustomizeCardComponent implements OnInit {
 
         const nav: any = document.querySelector('#navbarNav');
         observer.observe(nav, { attributes: true, attributeFilter: ['class'] });
+    }
+
+    onExit() {
+        const result = confirm('Desea salir del editor?');
+        return result;
     }
 
     openOptionsPanel() {

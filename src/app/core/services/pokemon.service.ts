@@ -36,9 +36,11 @@ export class PokemonService {
             );
     }
 
-    changeSelectedPokemon(pokemon: Pokemon) {
+    changeSelectedPokemon(pokemon: Pokemon | undefined) {
         this.selectedPokemon.next(pokemon);
-        this.setPokemonInStorage(pokemon);
+        if (pokemon) {
+            this.setPokemonInStorage(pokemon);
+        }
     }
 
     setPokemonInStorage(pokemon: Pokemon) {

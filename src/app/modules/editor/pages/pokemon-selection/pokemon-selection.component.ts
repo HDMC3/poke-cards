@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostBinding, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostBinding, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { delay } from 'rxjs';
@@ -12,7 +12,7 @@ import { PokemonService } from 'src/app/core/services/pokemon.service';
     styleUrls: ['./pokemon-selection.component.scss'],
     animations: [fadeInToBottom]
 })
-export class PokemonSelectionComponent {
+export class PokemonSelectionComponent implements OnInit {
 
     @HostBinding('class') content = 'pokemon-selection-container';
     @ViewChild('searchInput') searchInput: ElementRef | undefined;
@@ -36,6 +36,11 @@ export class PokemonSelectionComponent {
         this.searchForm = new FormGroup({
             'pokemon-name': new FormControl({ value: '', disabled: false }, [Validators.required])
         });
+    }
+
+    ngOnInit() {
+        this.pokemonService.changeSelectedPokemon(undefined);
+        localStorage.removeItem('selected-pokemon');
     }
 
     searchPokemon() {
@@ -65,7 +70,7 @@ export class PokemonSelectionComponent {
                         // this.pokemonImg = pokemon.sprites.dream_world.front_default;
                         this.loading = false;
                         this.searchForm.controls['pokemon-name'].enable();
-                        this.searchInput?.nativeElement.focus();
+                        // this.searchInput?.nativeElement.focus();
                     },
                     error: errorResponse => {
                         this.pokemon = undefined;
