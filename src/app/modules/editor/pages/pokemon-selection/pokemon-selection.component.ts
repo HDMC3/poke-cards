@@ -34,7 +34,7 @@ export class PokemonSelectionComponent implements OnInit {
         this.searchedWord = '';
         this.pokemonNotFound = false;
         this.searchForm = new FormGroup({
-            'pokemon-name': new FormControl({ value: '', disabled: false }, [Validators.required])
+            'pokemon-name': new FormControl({ value: '', disabled: false }, [Validators.required, Validators.maxLength(40)])
         });
     }
 
