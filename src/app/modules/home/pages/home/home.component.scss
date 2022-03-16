@@ -15,11 +15,36 @@
 }
 
 .description {
-    padding: 1em 3em 1em 3em;
-    width: 70%;
+    padding: 0 3em 1em 3em;
+    width: 90%;
     text-align: center;
     z-index: 1;
     margin: 0;
+}
+
+.pokeapi-link {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    padding: 0.1em 0.2em;
+    position: relative;
+}
+
+.pokeapi-link::after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0.2em;
+    background: linear-gradient(to right, #FFFFFF 0 48%, #000000 48% 52%,#FF0101 52% 100%);
+    transition: width 0.5s, border-width 0.5s;
+    border: 0px solid #000000;
+}
+
+.pokeapi-link:hover::after{
+    width: 100%;
+    border-width: 1px;
 }
 
 .carousel-container {
@@ -105,8 +130,6 @@
     }
 }
 
-
-
 .steps-container .step:hover {
 
     background: linear-gradient(180deg,#FFFFFF35 0 49%, #00000035 49% 51%, #FF010135 51% 100%);
@@ -140,7 +163,7 @@
 
 @media screen and (max-width: 992px) {
     .description {
-        width: 100%;
+        width: 90%;
     }
 
     .title {
