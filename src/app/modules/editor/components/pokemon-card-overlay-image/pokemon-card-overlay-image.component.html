@@ -1,0 +1,30 @@
+<div class="pokemon-card">
+    <div class="pokemon-card-top"></div>
+    <div class="pokemon-card-bottom">
+        <div class="pokemon-name">{{ pokemon?.name | titlecase}}</div>
+        <div class="pokemon-types">
+            <span [style.backgroundColor]="pokemonTypeColors[type.name]" *ngFor="let type of pokemon?.types" class="badge">
+                {{ getTranslatePokemonTypeName(type.name) }}
+            </span>
+        </div>
+        <div class="pokemon-attributes">
+            <div class="attribute">
+                <span class="attribute-name">Peso</span>
+                <span class="attribute-value badge">{{ pokemon?.weight }} kg</span>
+            </div>
+            <hr>
+            <div class="attribute">
+                <span class="attribute-name">Exp. base</span>
+                <span class="attribute-value badge">{{ pokemon?.base_experience }}</span>
+            </div>
+            <hr>
+            <div class="attribute">
+                <span class="attribute-name">Altura</span>
+                <span class="attribute-value badge">{{ pokemon?.height }} mts</span>
+            </div>
+        </div>
+    </div>
+    <div class="overlay-image">
+        <img [src]="pokemon?.sprites?.front_default" alt="">
+    </div>
+</div>

@@ -12,6 +12,7 @@ import { ControlsLayoutCentralImageComponent } from './components/controls-layou
 import { CardExportOptionsComponent } from './components/card-export-options/card-export-options.component';
 import { PokemonCardTopImageComponent } from './components/pokemon-card-top-image/pokemon-card-top-image.component';
 import { ControlsLayoutTopImageComponent } from './components/controls-layout-top-image/controls-layout-top-image.component';
+import { PokemonCardOverlayImageComponent } from './components/pokemon-card-overlay-image/pokemon-card-overlay-image.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ControlsLayoutTopImageComponent } from './components/controls-layout-to
         ControlsLayoutCentralImageComponent,
         CardExportOptionsComponent,
         PokemonCardTopImageComponent,
-        ControlsLayoutTopImageComponent
+        ControlsLayoutTopImageComponent,
+        PokemonCardOverlayImageComponent
     ],
     imports: [
         CommonModule,
