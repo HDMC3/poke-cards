@@ -111,7 +111,6 @@
                     width: var(--radial-progress-width);
                     height: var(--radial-progress-height);
                     border-radius: 50%;
-                    box-shadow: 0 0 0 1px #e9e6e6;
                     background: conic-gradient(
                         var(--color-radial-progress) 0 var(--radial-progress-degrees),
                         var(--background-radial-progress) 0deg 360deg

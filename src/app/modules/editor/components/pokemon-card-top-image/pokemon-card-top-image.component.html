@@ -1,10 +1,10 @@
 <div class="pokemon-card">
-    <div class="pokemon-card-top">
+    <div class="pokemon-card-top" [ngStyle]="{'background-color': customStyleValues.cardTopPart.background}">
         <div class="pokemon-card-image">
             <img [src]="pokemon?.sprites?.front_default" alt="">
         </div>
 
-        <div class="pokemon-name">
+        <div class="pokemon-name" [ngStyle]="{'color': customStyleValues.cardTopPart.pokemonNameColorFont}">
             {{ pokemon?.name | titlecase }}
         </div>
 
@@ -17,27 +17,39 @@
 
         <div class="pokemon-attributes">
             <div class="attribute">
-                <span class="label-attribute">Peso:</span>
-                <span class="badge bg-secondary">150</span>
+                <span class="label-attribute"
+                    [ngStyle]="{'color': customStyleValues.cardTopPart.labelsColorFont}">Peso:</span>
+                <span class="badge"
+                    [ngStyle]="{'background-color': customStyleValues.cardTopPart.colorBadges, 'color': customStyleValues.cardTopPart.badgesColorFont}">150</span>
             </div>
             <div class="attribute">
-                <span class="label-attribute">Exp. Base:</span>
-                <span class="badge bg-secondary">150</span>
+                <span class="label-attribute" [ngStyle]="{'color': customStyleValues.cardTopPart.labelsColorFont}">Exp.
+                    Base:</span>
+                <span class="badge"
+                    [ngStyle]="{'background-color': customStyleValues.cardTopPart.colorBadges, 'color': customStyleValues.cardTopPart.badgesColorFont}">150</span>
             </div>
             <div class="attribute">
-                <span class="label-attribute">Altura:</span>
-                <span class="badge bg-secondary">150</span>
+                <span class="label-attribute"
+                    [ngStyle]="{'color': customStyleValues.cardTopPart.labelsColorFont}">Altura:</span>
+                <span class="badge"
+                    [ngStyle]="{'background-color': customStyleValues.cardTopPart.colorBadges, 'color': customStyleValues.cardTopPart.badgesColorFont}">150</span>
             </div>
         </div>
     </div>
-    <div class="pokemon-card-bottom">
+    <div class="pokemon-card-bottom" [ngStyle]="{'background-color': customStyleValues.cardBottomPart.background}">
         <div class="pokemon-stats">
             <div *ngFor="let stat of pokemon?.stats" class="stat">
-                <div class="radial-progress">
-                    <div class="center-radial-progress">
+                <div [style.--color-radial-progress]="customStyleValues.cardBottomPart.radialProgressColor"
+                    [style.--background-radial-progress]="customStyleValues.cardBottomPart.radialProgressBackground"
+                    [style.--radial-progress-degrees]="getRadialProgressDegrees(stat.base_stat)"
+                    class="radial-progress">
+                    <div class="center-radial-progress"
+                        [ngStyle]="{'color': customStyleValues.cardBottomPart.radialProgressColorFont, 'background-color': customStyleValues.cardBottomPart.radialProgressCentralBackground}">
                         {{ stat.base_stat }}</div>
                 </div>
-                <span class="name-stat">{{getTranslateStatName(stat.name) | titlecase}}</span>
+                <span class="name-stat"
+                    [ngStyle]="{'color': customStyleValues.cardBottomPart.statColorFont}">{{getTranslateStatName(stat.name)
+                    | titlecase}}</span>
             </div>
         </div>
     </div>

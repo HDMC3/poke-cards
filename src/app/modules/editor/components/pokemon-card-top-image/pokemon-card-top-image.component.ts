@@ -1,6 +1,9 @@
-import { Component, OnInit, HostBinding, Input } from '@angular/core';
+import { Component, OnInit, HostBinding, Input, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { POKEMON_TYPE_COLORS } from 'src/app/core/constants/pokemon-type-colors';
 import { Pokemon } from 'src/app/core/interfaces/pokemon.interface';
+import { CustomStylesTopImageCardService } from 'src/app/core/services/custom-styles-top-image-card.service';
+import { CustomValuesTopImageCard } from 'src/app/core/types/custom-values-top-image-card';
 import { PokemonTypeName } from 'src/app/core/types/pokemon-type-name';
 
 @Component({
@@ -8,17 +11,26 @@ import { PokemonTypeName } from 'src/app/core/types/pokemon-type-name';
     templateUrl: './pokemon-card-top-image.component.html',
     styleUrls: ['./pokemon-card-top-image.component.scss']
 })
-export class PokemonCardTopImageComponent implements OnInit {
+export class PokemonCardTopImageComponent implements OnInit, OnDestroy {
 
     @HostBinding('id') topImageCardContainer = 'top-image-card-container';
     @Input() pokemon: Pokemon | undefined;
 
     pokemonTypeColors = POKEMON_TYPE_COLORS;
+    customStyleValues!: CustomValuesTopImageCard;
+    subscriptionCustomStyles!: Subscription;
 
-    constructor() { }
+    constructor(private customStylesService: CustomStylesTopImageCardService) { }
 
     ngOnInit() {
-        console.log('PokemonCardTopImageComponent');
+        this.subscriptionCustomStyles = this.customStylesService.customValues.subscribe(value => {
+            this.customStyleValues = value;
+        });
+    }
+
+    ngOnDestroy() {
+        this.subscriptionCustomStyles.unsubscribe();
+        this.customStylesService.resetAllValues();
     }
 
     getRadialProgressDegrees(baseStat: number) {

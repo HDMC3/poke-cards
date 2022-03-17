@@ -11,6 +11,7 @@ import { EditionOptionsPanelComponent } from './components/edition-options-panel
 import { ControlsLayoutCentralImageComponent } from './components/controls-layout-central-image/controls-layout-central-image.component';
 import { CardExportOptionsComponent } from './components/card-export-options/card-export-options.component';
 import { PokemonCardTopImageComponent } from './components/pokemon-card-top-image/pokemon-card-top-image.component';
+import { ControlsLayoutTopImageComponent } from './components/controls-layout-top-image/controls-layout-top-image.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { PokemonCardTopImageComponent } from './components/pokemon-card-top-imag
         EditionOptionsPanelComponent,
         ControlsLayoutCentralImageComponent,
         CardExportOptionsComponent,
-        PokemonCardTopImageComponent
+        PokemonCardTopImageComponent,
+        ControlsLayoutTopImageComponent
     ],
     imports: [
         CommonModule,
