@@ -1,0 +1,142 @@
+:host(#top-image-card-container) {
+    --background-radial-progress: #FFFFFF;
+    --color-radial-progress: #000000;
+    --radial-progress-degrees: 190deg; 
+    --pokemon-card-width: 18em;
+    --pokemon-card-height: 26em;
+    --pokemon-card-border-width: 4px;
+    --border-radius-top-part: 15px 15px 0 0;
+    --border-radius-bottom-part: 0 0 15px 15px;
+    --pokemon-name-font-size: 1.5em;
+    --name-stat-font-size: 0.9em;
+    --radial-progress-width: 3em;
+    --radial-progress-height: 3em;
+    --center-radial-progress-font-size: 0.8em;
+    --center-radial-progress-width: 2rem;
+    --center-radial-progress-height: 2rem;
+}
+
+.pokemon-card {
+    width: var(--pokemon-card-width);
+    height: var(--pokemon-card-height);
+
+    .pokemon-card-top {
+        height: 65%;
+        width: 100%;
+        border: var(--pokemon-card-border-width) solid #000000;
+        border-bottom-width: calc(var(--pokemon-card-border-width) / 2);
+        border-radius: var(--border-radius-top-part);
+        display: flex;
+        flex-direction: column;
+        background-color: #ffffff;
+
+        .pokemon-card-image {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5em 0 0.5em 0;
+
+            img {
+                height: 100%;
+                object-fit: cover;
+                filter: drop-shadow(0 3px 2px #646464a0);
+            }
+        }
+
+        .pokemon-name {
+            text-align: center;
+            font-weight: bold;
+            font-size: var(--pokemon-name-font-size);
+        }
+
+        .pokemon-types {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1em;
+            padding: 0.5em 0;
+        }
+
+        .pokemon-attributes {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 0.5em 0 1em 0;
+
+            .attribute {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .label-attribute {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+    .pokemon-card-bottom {
+        height: 35%;
+        width: 100%;
+        border: var(--pokemon-card-border-width) solid #000000;
+        border-top-width: calc(var(--pokemon-card-border-width) / 2);
+        border-radius: var(--border-radius-bottom-part);
+        display: flex;
+        background-color: #ffffff;
+
+        .pokemon-stats {
+            padding: 0.3em 1em 0.3em 1em;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
+
+            .stat {
+                display: flex;
+                // flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 0.25em;
+
+                .name-stat {
+                    font-size: var(--name-stat-font-size);
+                    font-weight: bold;
+                }
+
+                .radial-progress {
+                    position: relative;
+                    box-sizing: border-box;
+                    width: var(--radial-progress-width);
+                    height: var(--radial-progress-height);
+                    border-radius: 50%;
+                    box-shadow: 0 0 0 1px #e9e6e6;
+                    background: conic-gradient(
+                        var(--color-radial-progress) 0 var(--radial-progress-degrees),
+                        var(--background-radial-progress) 0deg 360deg
+                    );
+                    background-size: 3em 3em;
+
+                    .center-radial-progress {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: var(--center-radial-progress-font-size);
+                        font-weight: bold;
+                        position: absolute;
+                        width: var(--center-radial-progress-width);
+                        height: var(--center-radial-progress-height);
+                        background: #ffffff;
+                        border: 1px solid #00000010;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        border-radius: 50%;
+                        box-sizing: border-box;
+                    }
+                }
+            }
+        }
+    }
+}
