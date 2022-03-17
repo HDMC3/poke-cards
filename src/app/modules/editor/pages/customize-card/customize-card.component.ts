@@ -17,11 +17,13 @@ export class CustomizeCardComponent implements OnInit, EditorExit {
     @HostBinding('@fadeInToBottom') pageInAnimation = '';
     pokemon: Pokemon | undefined;
     optionsPanelIsOpen: boolean;
+    cardTypeSelected: string;
 
     constructor(
         private pokemonService: PokemonService
     ) {
         this.optionsPanelIsOpen = true;
+        this.cardTypeSelected = 'central-image';
     }
 
     ngOnInit() {
@@ -54,6 +56,10 @@ export class CustomizeCardComponent implements OnInit, EditorExit {
         const nav: any = document.querySelector('nav');
         const heightNav = window.getComputedStyle(nav).height;
         return `calc(100vh - ${heightNav})`;
+    }
+
+    changeCardType(value: string) {
+        this.cardTypeSelected = value;
     }
 
 }

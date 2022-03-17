@@ -9,6 +9,7 @@ export class EditionOptionsPanelComponent {
 
     @HostBinding('class') hostContainer = 'panel';
     @Output() closeOptionsPanel = new EventEmitter();
+    @Output() changeCardType = new EventEmitter();
 
     cardType: 'central-image' | 'top-image' | 'overlay-image';
 
@@ -18,6 +19,10 @@ export class EditionOptionsPanelComponent {
 
     closePanel() {
         this.closeOptionsPanel.emit();
+    }
+
+    onChangeCardType() {
+        this.changeCardType.emit(this.cardType);
     }
 
 }

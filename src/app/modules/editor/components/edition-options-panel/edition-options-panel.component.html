@@ -2,15 +2,15 @@
     <button class="btn-close bg-dark" (click)="closePanel()"></button>
     <div class="form-group">
         <label for="image-type">Tipo de tarjeta:</label>
-        <select class="form-select mt-2" id="image-type">
-            <option>Tarjeta con imagen central</option>
-            <option>Tarjeta con imagen superior</option>
-            <option>Tarjeta con imagen superpuesta</option>
+        <select [(ngModel)]="cardType" (ngModelChange)="onChangeCardType()" class="form-select mt-2" id="image-type">
+            <option value="central-image">Tarjeta con imagen central</option>
+            <option value="top-image">Tarjeta con imagen superior</option>
+            <option value="overlay-image">Tarjeta con imagen superpuesta</option>
         </select>
     </div>
 </div>
 
 <app-card-export-options></app-card-export-options>
 
-<!-- <app-controls-layout-central-image></app-controls-layout-central-image> -->
-<app-controls-layout-top-image></app-controls-layout-top-image>
+<app-controls-layout-central-image *ngIf="cardType === 'central-image'"></app-controls-layout-central-image>
+<app-controls-layout-top-image *ngIf="cardType === 'top-image'"></app-controls-layout-top-image>

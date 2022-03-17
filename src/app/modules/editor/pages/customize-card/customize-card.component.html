@@ -1,11 +1,11 @@
 <div class="card-container">
-    <!-- <app-pokemon-card-central-image [pokemon]="pokemon"></app-pokemon-card-central-image> -->
-    <app-pokemon-card-top-image [pokemon]="pokemon"></app-pokemon-card-top-image>
+    <app-pokemon-card-central-image *ngIf="cardTypeSelected === 'central-image'" [pokemon]="pokemon"></app-pokemon-card-central-image>
+    <app-pokemon-card-top-image *ngIf="cardTypeSelected === 'top-image'" [pokemon]="pokemon"></app-pokemon-card-top-image>
 </div>
 
 <div class="panel-container" [ngClass]="{'open-panel': optionsPanelIsOpen === true, 'close-panel': optionsPanelIsOpen === false}">
     <div class="backdrop" (click)="optionsPanelIsOpen = false"></div>
-    <app-edition-options-panel (closeOptionsPanel)="closeOptionsPanel()"></app-edition-options-panel>
+    <app-edition-options-panel (closeOptionsPanel)="closeOptionsPanel()" (changeCardType)="changeCardType($event)"></app-edition-options-panel>
 </div>
 
 <div *ngIf="!optionsPanelIsOpen" class="options-button-container">
