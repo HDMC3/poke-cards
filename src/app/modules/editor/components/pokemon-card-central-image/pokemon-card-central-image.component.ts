@@ -1,5 +1,6 @@
 import { Component, HostBinding, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { fadeIn } from 'src/app/core/animations/fade-in.animation';
 import { POKEMON_TYPE_COLORS } from 'src/app/core/constants/pokemon-type-colors';
 import { Pokemon } from 'src/app/core/interfaces/pokemon.interface';
 import { CustomStylesCentralImageCardService } from 'src/app/core/services/custom-styles-central-image-card.service';
@@ -9,11 +10,15 @@ import { PokemonTypeName } from 'src/app/core/types/pokemon-type-name';
 @Component({
     selector: 'app-pokemon-card-central-image',
     templateUrl: './pokemon-card-central-image.component.html',
-    styleUrls: ['./pokemon-card-central-image.component.scss']
+    styleUrls: ['./pokemon-card-central-image.component.scss'],
+    animations: [
+        fadeIn
+    ]
 })
 export class PokemonCardCentralImageComponent implements OnInit, OnDestroy {
 
     @HostBinding('class') hostContainer = 'host-container';
+    @HostBinding('@fadeIn') cardInAnimation = '';
     @Input() pokemon: Pokemon | undefined;
 
     pokemonTypeColors = POKEMON_TYPE_COLORS;
