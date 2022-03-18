@@ -35,7 +35,6 @@ export class PokemonCardTopImageComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
         this.subscriptionCustomStyles.unsubscribe();
-        this.customStylesService.resetAllValues();
     }
 
     getRadialProgressDegrees(baseStat: number) {

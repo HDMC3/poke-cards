@@ -35,7 +35,6 @@ export class PokemonCardOverlayImageComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
         this.subscriptionCustomValues.unsubscribe();
-        this.customStylesService.resetAllValues();
     }
 
     getTranslatePokemonTypeName(pokemonTypeName: PokemonTypeName) {

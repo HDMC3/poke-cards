@@ -1,7 +1,10 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
 import { fadeInToBottom } from 'src/app/core/animations/fade-in-to-bottom.animation';
 import { EditorExit } from 'src/app/core/interfaces/editor-exit.interface';
 import { Pokemon } from 'src/app/core/interfaces/pokemon.interface';
+import { CustomStylesCentralImageCardService } from 'src/app/core/services/custom-styles-central-image-card.service';
+import { CustomStylesOverlayImageCardService } from 'src/app/core/services/custom-styles-overlay-image-card.service';
+import { CustomStylesTopImageCardService } from 'src/app/core/services/custom-styles-top-image-card.service';
 import { PokemonService } from 'src/app/core/services/pokemon.service';
 
 @Component({
@@ -10,7 +13,7 @@ import { PokemonService } from 'src/app/core/services/pokemon.service';
     styleUrls: ['./customize-card.component.scss'],
     animations: [fadeInToBottom]
 })
-export class CustomizeCardComponent implements OnInit, EditorExit {
+export class CustomizeCardComponent implements OnInit, OnDestroy, EditorExit {
 
     @HostBinding('class') customizeCardComponent = 'customize-card-container';
     @HostBinding('style.height') heightCustomizeCardContainer = this.getHeightContainer();
@@ -18,12 +21,19 @@ export class CustomizeCardComponent implements OnInit, EditorExit {
     pokemon: Pokemon | undefined;
     optionsPanelIsOpen: boolean;
     cardTypeSelected: string;
+    mutationObserverNavbar: MutationObserver;
 
     constructor(
-        private pokemonService: PokemonService
+        private pokemonService: PokemonService,
+        private customStyleTopImageService: CustomStylesTopImageCardService,
+        private customStyleCentralImageService: CustomStylesCentralImageCardService,
+        private customStyleOverlayImageService: CustomStylesOverlayImageCardService
     ) {
         this.optionsPanelIsOpen = true;
         this.cardTypeSelected = 'central-image';
+        this.mutationObserverNavbar = new MutationObserver((m) => {
+            this.heightCustomizeCardContainer = this.getHeightContainer();
+        });
     }
 
     ngOnInit() {
@@ -31,12 +41,15 @@ export class CustomizeCardComponent implements OnInit, EditorExit {
             this.pokemon = pokemon;
         });
 
-        const observer = new MutationObserver((m) => {
-            this.heightCustomizeCardContainer = this.getHeightContainer();
-        });
-
         const nav: any = document.querySelector('#navbarNav');
-        observer.observe(nav, { attributes: true, attributeFilter: ['class'] });
+        this.mutationObserverNavbar.observe(nav, { attributes: true, attributeFilter: ['class'] });
+    }
+
+    ngOnDestroy() {
+        this.customStyleCentralImageService.resetAllValues();
+        this.customStyleTopImageService.resetAllValues();
+        this.customStyleOverlayImageService.resetAllValues();
+        this.mutationObserverNavbar.disconnect();
     }
 
     onExit() {

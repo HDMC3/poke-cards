@@ -35,7 +35,6 @@ export class PokemonCardCentralImageComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
         this.subscriptionCustomStyles.unsubscribe();
-        this.customStylesService.resetAllValues();
     }
 
     getPercentStatProgressBar(baseStat: number) {
