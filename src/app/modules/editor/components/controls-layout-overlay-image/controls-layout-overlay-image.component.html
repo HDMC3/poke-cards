@@ -1,0 +1,78 @@
+<div class="accordion">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="overlay-image-item">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#overlay-image-item-collapse" aria-expanded="true" aria-controls="overlay-image-item-collapse">
+                Contenedor de imagen
+            </button>
+        </h2>
+        <div id="overlay-image-item-collapse" class="accordion-collapse collapse show" aria-labelledby="overlay-image-item">
+            <div class="accordion-body">
+                <div class="controls-group card-top">
+                    <div class="color-picker-control">
+                        <label>Background:</label>
+                        <input [(ngModel)]="customValues.imageContainer.background" (ngModelChange)="onChangeControlValue()" class="btn btn-secondary" type="color">
+                    </div>
+
+                    <div class="custom-controls-options">
+                        <span class="badge d-flex align-items-center gap-1" (click)="resetValues('overlay-image')">
+                            <i class="bi bi-arrow-repeat"></i>Reiniciar estilos
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="principal-part-item">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#principal-part-item-collapse" aria-expanded="false"
+                aria-controls="principal-part-item-collapse">
+                Parte principal
+            </button>
+        </h2>
+        <div id="principal-part-item-collapse" class="accordion-collapse collapse" aria-labelledby="principal-part-item">
+            <div class="accordion-body">
+                <div class="controls-group card-bottom">
+                    <div class="color-picker-control">
+                        <label>Background:</label>
+                        <input [(ngModel)]="customValues.principalPart.background" (ngModelChange)="onChangeControlValue()" class="btn btn-secondary" type="color">
+                    </div>
+
+                    <div class="color-picker-control">
+                        <label>Nombre de pokemon:</label>
+                        <input [(ngModel)]="customValues.principalPart.pokemonNameColorFont" (ngModelChange)="onChangeControlValue()" class="btn btn-secondary" type="color">
+                    </div>
+
+                    <div class="color-picker-control">
+                        <label>Nombre de stat:</label>
+                        <input [(ngModel)]="customValues.principalPart.statNameColorFont" (ngModelChange)="onChangeControlValue()" class="btn btn-secondary" type="color">
+                    </div>
+
+                    <div class="color-picker-control">
+                        <label>Background indicadores:</label>
+                        <input [(ngModel)]="customValues.principalPart.colorBadges" (ngModelChange)="onChangeControlValue()" class="btn btn-secondary" type="color">
+                    </div>
+
+                    <div class="color-picker-control">
+                        <label>Texto de indicadores:</label>
+                        <input [(ngModel)]="customValues.principalPart.badgesFontColor" (ngModelChange)="onChangeControlValue()" class="btn btn-secondary" type="color">
+                    </div>
+
+                    <div class="color-picker-control">
+                        <label>Separador:</label>
+                        <input [(ngModel)]="customValues.principalPart.separatorColor" (ngModelChange)="onChangeControlValue()" class="btn btn-secondary" type="color">
+                    </div>
+
+                    <div class="custom-controls-options">
+                        <span class="badge d-flex align-items-center gap-1" (click)="resetValues('principal-part')">
+                            <i class="bi bi-arrow-repeat"></i>Reiniciar estilos
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

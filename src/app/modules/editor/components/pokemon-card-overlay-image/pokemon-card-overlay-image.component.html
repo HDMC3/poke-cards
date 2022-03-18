@@ -1,7 +1,7 @@
 <div class="pokemon-card">
     <div class="pokemon-card-top"></div>
-    <div class="pokemon-card-bottom">
-        <div class="pokemon-name">{{ pokemon?.name | titlecase}}</div>
+    <div class="pokemon-card-bottom" [ngStyle]="{'background-color': customStyleValues.principalPart.background}">
+        <div class="pokemon-name" [ngStyle]="{'color': customStyleValues.principalPart.pokemonNameColorFont}">{{ pokemon?.name | titlecase}}</div>
         <div class="pokemon-types">
             <span [style.backgroundColor]="pokemonTypeColors[type.name]" *ngFor="let type of pokemon?.types" class="badge">
                 {{ getTranslatePokemonTypeName(type.name) }}
@@ -9,22 +9,34 @@
         </div>
         <div class="pokemon-attributes">
             <div class="attribute">
-                <span class="attribute-name">Peso</span>
-                <span class="attribute-value badge">{{ pokemon?.weight }} kg</span>
+                <span class="attribute-name" [ngStyle]="{'color': customStyleValues.principalPart.statNameColorFont}">
+                    Peso
+                </span>
+                <span class="attribute-value badge" [ngStyle]="{'background-color': customStyleValues.principalPart.colorBadges, 'color': customStyleValues.principalPart.badgesFontColor}">
+                    {{ pokemon?.weight }} kg
+                </span>
             </div>
-            <hr>
+            <hr [ngStyle]="{'border-right-color': customStyleValues.principalPart.separatorColor}">
             <div class="attribute">
-                <span class="attribute-name">Exp. base</span>
-                <span class="attribute-value badge">{{ pokemon?.base_experience }}</span>
+                <span class="attribute-name" [ngStyle]="{'color': customStyleValues.principalPart.statNameColorFont}">
+                    Exp. base
+                </span>
+                <span class="attribute-value badge" [ngStyle]="{'background-color': customStyleValues.principalPart.colorBadges, 'color': customStyleValues.principalPart.badgesFontColor}">
+                    {{ pokemon?.base_experience }}
+                </span>
             </div>
-            <hr>
+            <hr [ngStyle]="{'border-right-color': customStyleValues.principalPart.separatorColor}">
             <div class="attribute">
-                <span class="attribute-name">Altura</span>
-                <span class="attribute-value badge">{{ pokemon?.height }} mts</span>
+                <span class="attribute-name" [ngStyle]="{'color': customStyleValues.principalPart.statNameColorFont}">
+                    Altura
+                </span>
+                <span class="attribute-value badge" [ngStyle]="{'background-color': customStyleValues.principalPart.colorBadges, 'color': customStyleValues.principalPart.badgesFontColor}">
+                    {{ pokemon?.height }} mts
+                </span>
             </div>
         </div>
     </div>
-    <div class="overlay-image">
+    <div class="overlay-image" [ngStyle]="{'background-color': customStyleValues.imageContainer.background}">
         <img [src]="pokemon?.sprites?.front_default" alt="">
     </div>
 </div>

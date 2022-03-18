@@ -1,0 +1,64 @@
+.accordion-item {
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+
+    .accordion-header > button {
+        font-weight: bold;
+    }
+
+}
+
+.custom-controls-options {
+    display: flex;
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+    span {
+        cursor: pointer;
+        background-color: #eee;
+        color: #555;
+        transition: background-color 0.25s;
+    }
+
+    span:hover {
+        background-color: #ddd;
+    }
+
+    span:active {
+        background-color: #eee;
+    }
+
+    i {
+        font-size: 1.5em;
+    }
+}
+
+.controls-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    
+    .color-picker-control {
+        align-items: center;
+    }
+}
+
+.color-picker-control {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
+    
+    label {
+        width: fit-content;
+        font-size: 0.9em;
+        text-align: center;
+    }
+    
+    .form-control,
+    .btn {
+        flex-shrink: unset;
+        width: 4em;
+        margin-top: 1px;
+    }
+}

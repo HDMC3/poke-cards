@@ -1,6 +1,9 @@
-import { Component, HostBinding, Input, OnInit } from '@angular/core';
+import { Component, HostBinding, Input, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { POKEMON_TYPE_COLORS } from 'src/app/core/constants/pokemon-type-colors';
 import { Pokemon } from 'src/app/core/interfaces/pokemon.interface';
+import { CustomStylesOverlayImageCardService } from 'src/app/core/services/custom-styles-overlay-image-card.service';
+import { CustomValuesOverlayImageCard } from 'src/app/core/types/custom-values-overlay-image-card';
 import { PokemonTypeName } from 'src/app/core/types/pokemon-type-name';
 
 @Component({
@@ -8,17 +11,26 @@ import { PokemonTypeName } from 'src/app/core/types/pokemon-type-name';
     templateUrl: './pokemon-card-overlay-image.component.html',
     styleUrls: ['./pokemon-card-overlay-image.component.scss']
 })
-export class PokemonCardOverlayImageComponent implements OnInit {
+export class PokemonCardOverlayImageComponent implements OnInit, OnDestroy {
 
     @HostBinding('id') overlayImageContainer = 'overlay-image-container';
     @Input() pokemon: Pokemon | undefined;
 
     pokemonTypeColors = POKEMON_TYPE_COLORS;
+    customStyleValues!: CustomValuesOverlayImageCard;
+    subscriptionCustomValues!: Subscription;
 
-    constructor() { }
+    constructor(private customStylesService: CustomStylesOverlayImageCardService) { }
 
     ngOnInit() {
+        this.subscriptionCustomValues = this.customStylesService.customValues.subscribe(value => {
+            this.customStyleValues = value;
+        });
+    }
 
+    ngOnDestroy() {
+        this.subscriptionCustomValues.unsubscribe();
+        this.customStylesService.resetAllValues();
     }
 
     getTranslatePokemonTypeName(pokemonTypeName: PokemonTypeName) {
