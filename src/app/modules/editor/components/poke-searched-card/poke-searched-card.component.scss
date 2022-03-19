@@ -1,7 +1,6 @@
 $card-part-width: 12em;
 $card-part-height: 8em;
 $border-width-card-pokemon: 4px;
-// $card-part-border: 2px;
 $pokeball-diameter: 5em;
 $border-width-pokeball: 3.5px;
 $border-width-union-pokeball: 2px;
@@ -33,14 +32,12 @@ $border-width-union-pokeball: 2px;
     }
         
     .pokemon-img {
-        // height: 100%;
         width: 100%;
         object-fit: cover;
     }
 
     .card-part-top {
         background-color: #07a0e3;
-        // border-bottom: 2px solid black;
         position: relative;
         display: flex;
         justify-content: center;
@@ -48,42 +45,30 @@ $border-width-union-pokeball: 2px;
     
     .card-part-bottom {
         background-color: #ff0101;
-        // border-top: 2px solid black;
-        // position: relative;
         
         display: flex;
         justify-content: center;
     }
 
-    // .card-part-top::after,
-    // .card-part-bottom::after {
     .poke-ball-top,
     .poke-ball-bottom {
-        // position: absolute;
-        // content: "";
         width: $pokeball-diameter;
         height: calc($pokeball-diameter / 2);   
         border: $border-width-pokeball solid black;
         box-sizing: border-box;
     }
 
-    // .card-part-top::after {
     .poke-ball-top {
         border-radius: $pokeball-diameter $pokeball-diameter 0 0;
         border-bottom: $border-width-union-pokeball solid;
-        // bottom: -1px;
-        // left: calc(50% - 2.5em);
         background-color: #ff0101;
 
         align-self: flex-end;
     }
 
-    // .card-part-bottom::after {
     .poke-ball-bottom {
         border-radius: 0 0 $pokeball-diameter $pokeball-diameter;
         border-top: $border-width-union-pokeball solid;
-        // top: -1px;
-        // left: calc(50% - 2.5em);
         background-color: #ffffff;
 
         align-self: flex-start;

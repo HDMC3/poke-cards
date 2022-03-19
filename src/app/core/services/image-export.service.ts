@@ -20,7 +20,6 @@ export class ImageExportService {
             }
 
         } catch (error) {
-            console.log(error);
         }
 
     }
@@ -35,7 +34,6 @@ export class ImageExportService {
                 this.downloadImage(pokemonName, 'svg', imageData, cardType);
             }
         } catch (error) {
-            console.log(error);
         }
     }
 
@@ -49,7 +47,6 @@ export class ImageExportService {
                 this.downloadImage(pokemonName, 'jpeg', imageData, cardType);
             }
         } catch (error) {
-            console.log(error);
         }
     }
 

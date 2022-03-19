@@ -67,10 +67,8 @@ export class PokemonSelectionComponent implements OnInit {
                         this.pokemon = pokemon;
                         this.pokemonNotFound = false;
                         this.pokemonImg = pokemon.sprites.front_default;
-                        // this.pokemonImg = pokemon.sprites.dream_world.front_default;
                         this.loading = false;
                         this.searchForm.controls['pokemon-name'].enable();
-                        // this.searchInput?.nativeElement.focus();
                     },
                     error: errorResponse => {
                         this.pokemon = undefined;
