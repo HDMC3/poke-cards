@@ -10,7 +10,7 @@
     </div>
 </div>
 
-<app-card-export-options></app-card-export-options>
+<app-card-export-options [cardType]="cardType"></app-card-export-options>
 
 <app-controls-layout-central-image *ngIf="cardType === 'central-image'"></app-controls-layout-central-image>
 <app-controls-layout-top-image *ngIf="cardType === 'top-image'"></app-controls-layout-top-image>

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ImageExportService } from 'src/app/core/services/image-export.service';
 import { PokemonService } from 'src/app/core/services/pokemon.service';
@@ -10,8 +10,14 @@ import { PokemonService } from 'src/app/core/services/pokemon.service';
 })
 export class CardExportOptionsComponent implements OnInit, OnDestroy {
 
+    @Input() cardType = '';
     pokemonName: string;
     pokemonSubscription!: Subscription;
+    cardTypesDict: {[key: string]: string} = {
+        'central-image': '1',
+        'top-image': '2',
+        'overlay-image': '3'
+    };
 
     constructor(
         private imageExportService: ImageExportService,
@@ -33,15 +39,15 @@ export class CardExportOptionsComponent implements OnInit, OnDestroy {
     }
 
     exportCardToSvg() {
-        this.imageExportService.exportToSvg(this.pokemonName);
+        this.imageExportService.exportToSvg(this.pokemonName, this.cardTypesDict[this.cardType]);
     }
 
     exportCardToPng() {
-        this.imageExportService.exportToPng(this.pokemonName);
+        this.imageExportService.exportToPng(this.pokemonName, this.cardTypesDict[this.cardType]);
     }
 
     exportCardToJpg() {
-        this.imageExportService.exportToJpg(this.pokemonName);
+        this.imageExportService.exportToJpg(this.pokemonName, this.cardTypesDict[this.cardType]);
     }
 
 }
