@@ -20,7 +20,7 @@ Aplicación web para editar tarjetas pokemon sencillas, y exportarlas en formato
 
 ## Getting started
 
-1. `git clone https://github.com/HDMC3/poke-cards`
+1. `git clone https://github.com/HDMC3/poke-cards.git`
 2. `cd poke-cards`
 3. `npm install`
 4. `npm run dev` (`ng serve` con angular-cli)
